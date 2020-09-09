@@ -1,4 +1,4 @@
-import App from '@/App.vue'
+import App from '@/App'
 import { mount } from '@vue/test-utils'
 
 describe('Testing App component', () => {
