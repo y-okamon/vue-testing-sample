@@ -82,7 +82,7 @@ export default {
 ```
 
 ## テストコードの記述
-`App.vue`と同じディレクトリに`__tests__`ディレクトリを作成する。  
+`App.vue`と同一階層に`__tests__`ディレクトリを作成する。  
 ※Jestで[推奨されるディレクトリ構造](https://vue-test-utils.vuejs.org/ja/guides/#%E3%83%86%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E9%85%8D%E7%BD%AE)となります。
 
 ```
