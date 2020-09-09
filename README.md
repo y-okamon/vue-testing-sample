@@ -104,6 +104,15 @@ describe('Testing App component', () => {
 })
 ```
 
+### ちなみに
+``` javascript
+it('checks textcontent to Hello', () => {})
+```
+の `it` は `test` に変えても良い
+``` javascript
+test('checks textcontent to Hello', () => {})
+```
+
 ## テストを実行する
 以下のコマンドを入力してテストを実行する。
 ```
