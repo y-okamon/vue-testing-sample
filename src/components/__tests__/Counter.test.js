@@ -5,11 +5,7 @@ let wrapper
 
 beforeEach(() => {
   // コンポーネントがマウントされてラッパが作成される
-  wrapper = mount(Counter, {
-    propsData: {
-      msg: "Vue test!"
-    }
-  })
+  wrapper = mount(Counter)
 })
 
 afterEach(() => {
@@ -43,17 +39,18 @@ describe('Testing App component', () => {
   })
 
   // コンポーネントの状態を操作する
-  it('manipulates state (data)', () => {
+  it('manipulates state (data)', async () => {
     // data() { count: 0 } のテスト
     expect(wrapper.vm.count).toBe(0)
     // count に 2 をセットする
-    wrapper.setData({ count: 2 })
+    await wrapper.setData({ count: 2 })
     // data() { count: 2 } になっている事を確認
     expect(wrapper.vm.count).toBe(2)
   })
 
   // props
-  it('props test', () => {
+  it('props test', async () => {
+    await wrapper.setProps({ msg: 'Vue test!' })
     expect(wrapper.html()).toContain('<p>Vue test!</p>')
   })
 })
