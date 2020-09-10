@@ -1,10 +1,22 @@
 import Counter from '@/components/Counter'
 import { mount } from '@vue/test-utils'
 
-describe('Testing App component', () => {
-  // コンポーネントがマウントされてラッパが作成される
-  const wrapper = mount(Counter)
+let wrapper
 
+beforeEach(() => {
+  // コンポーネントがマウントされてラッパが作成される
+  wrapper = mount(Counter, {
+    propsData: {
+      msg: "Vue test!"
+    }
+  })
+})
+
+afterEach(() => {
+  wrapper.destroy();
+})
+
+describe('Testing App component', () => {
   // コンポーネントの描画されたHTMLの出力をテスト
   it('renders the correct markup', () => {
     // wrapper.html() // "<div id=\"counter\"><span class=\"count\">0</span><button>カウントアップ</button></div>"
@@ -28,5 +40,20 @@ describe('Testing App component', () => {
     button.trigger('click')
     // clickイベントが発火したため data() { count: 1 } になっている事を確認
     expect(wrapper.vm.count).toBe(1)
+  })
+
+  // コンポーネントの状態を操作する
+  it('manipulates state (data)', () => {
+    // data() { count: 0 } のテスト
+    expect(wrapper.vm.count).toBe(0)
+    // count に 2 をセットする
+    wrapper.setData({ count: 2 })
+    // data() { count: 2 } になっている事を確認
+    expect(wrapper.vm.count).toBe(2)
+  })
+
+  // props
+  it('props test', () => {
+    expect(wrapper.html()).toContain('<p>Vue test!</p>')
   })
 })
