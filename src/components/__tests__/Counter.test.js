@@ -12,7 +12,7 @@ afterEach(() => {
   wrapper.destroy();
 })
 
-describe('Testing App component', () => {
+describe('Testing Counter component', () => {
   // コンポーネントの描画されたHTMLの出力をテスト
   it('renders the correct markup', () => {
     // wrapper.html() // "<div id=\"counter\"><span class=\"count\">0</span><button>カウントアップ</button></div>"
